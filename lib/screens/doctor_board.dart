@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:voice_prescription/blocs/patient.dart';
 import 'package:voice_prescription/modals/disease.dart';
+import 'package:voice_prescription/screens/diagnose.dart';
 // import 'package:voice_prescription/screens/diagnose.dart';
 
 class DoctorBoard extends StatefulWidget {
@@ -49,26 +50,26 @@ class _DoctorBoardState extends State<DoctorBoard> {
                     DiseaseModal disease = DiseaseModal.fromMap(e.data());
                     return ListTile(
                       onTap: () {
-                        // Navigator.push<Future<Map<String, dynamic>>>(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) =>
-                        //           DiagnoseScreen(disease: disease)),
-                        // ).then((Future<Map<String, dynamic>> fut) {
-                        //   fut.then((Map<String, dynamic> res) {
-                        //     ScaffoldMessenger.of(context).showSnackBar(
-                        //       SnackBar(
-                        //         content: Text(res['message'][0]),
-                        //         // content: Text(res['status']),
-                        //       ),
-                        //     );
-                        //     print(res.toString());
-                        //     Future.delayed(Duration(seconds: 3), () {
-                        //       ScaffoldMessenger.of(context)
-                        //           .hideCurrentSnackBar();
-                        //     });
-                        //   });
-                        // });
+                        Navigator.push<Future<Map<String, dynamic>>>(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  DiagnoseScreen(disease: disease)),
+                        ).then((Future<Map<String, dynamic>> fut) {
+                          fut.then((Map<String, dynamic> res) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(res['message'][0]),
+                                // content: Text(res['status']),
+                              ),
+                            );
+                            print(res.toString());
+                            Future.delayed(Duration(seconds: 3), () {
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                            });
+                          });
+                        });
                       },
                       leading: Icon(Icons.opacity),
                       title: Text(disease.disease),

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:voice_prescription/blocs/auth.dart';
 import 'package:voice_prescription/blocs/patient.dart';
 import 'package:voice_prescription/modals/disease.dart';
+import 'package:voice_prescription/screens/prescription.dart';
 // import 'package:voice_prescription/screens/prescription.dart';
 
 class DiseasesScreen extends StatefulWidget {
@@ -99,51 +100,51 @@ class _DiseasesScreenState extends State<DiseasesScreen> {
                               SnackBar(content: Text("Disease deleted")));
                         },
                         child: ListTile(
-                          // onTap: disease.diagnosed
-                          //     ? () => Navigator.push(
-                          //           context,
-                          //           MaterialPageRoute(
-                          //               builder: (context) =>
-                          //                   PrescriptionScreen(
-                          //                       disease: disease)),
+                          onTap: disease.diagnosed
+                              ? () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            PrescriptionScreen(
+                                                disease: disease)),
 
-                          //           // ? () => showDialog(
-                          //           //       context: context,
-                          //           //       builder: (context) => AlertDialog(
-                          //           //         actions: [
-                          //           //           TextButton(
-                          //           //               onPressed: () {
-                          //           //                 Navigator.pop(context);
-                          //           //               },
-                          //           //               child: Text("OK"))
-                          //           //         ],
-                          //           //         content: Column(
-                          //           //           mainAxisSize: MainAxisSize.min,
-                          //           //           crossAxisAlignment:
-                          //           //               CrossAxisAlignment.start,
-                          //           //           children: [
-                          //           //             Text(
-                          //           //               disease.user.name,
-                          //           //               style: TextStyle(
-                          //           //                   color: Colors.green,
-                          //           //                   fontSize: 20.0),
-                          //           //             ),
-                          //           //             Text(disease.kabSeH),
-                          //           //             SizedBox(
-                          //           //               height: 20,
-                          //           //             ),
-                          //           //             Text(
-                          //           //               disease.disease,
-                          //           //               style: TextStyle(
-                          //           //                   color: Colors.red,
-                          //           //                   fontSize: 20.0),
-                          //           //             ),
-                          //           //             Text(disease.prescription),
-                          //           //           ],
-                          //           //         ),
-                          //           //       ),
-                          //         )
-                          //     : null,
+                                    // ? () => showDialog(
+                                    //       context: context,
+                                    //       builder: (context) => AlertDialog(
+                                    //         actions: [
+                                    //           TextButton(
+                                    //               onPressed: () {
+                                    //                 Navigator.pop(context);
+                                    //               },
+                                    //               child: Text("OK"))
+                                    //         ],
+                                    //         content: Column(
+                                    //           mainAxisSize: MainAxisSize.min,
+                                    //           crossAxisAlignment:
+                                    //               CrossAxisAlignment.start,
+                                    //           children: [
+                                    //             Text(
+                                    //               disease.user.name,
+                                    //               style: TextStyle(
+                                    //                   color: Colors.green,
+                                    //                   fontSize: 20.0),
+                                    //             ),
+                                    //             Text(disease.kabSeH),
+                                    //             SizedBox(
+                                    //               height: 20,
+                                    //             ),
+                                    //             Text(
+                                    //               disease.disease,
+                                    //               style: TextStyle(
+                                    //                   color: Colors.red,
+                                    //                   fontSize: 20.0),
+                                    //             ),
+                                    //             Text(disease.prescription),
+                                    //           ],
+                                    //         ),
+                                    //       ),
+                                  )
+                              : null,
                           leading: Icon(Icons.opacity),
                           title: Text(disease.disease),
                           isThreeLine: authServices.user.isPatient,
