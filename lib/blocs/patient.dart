@@ -37,7 +37,8 @@ class PatientServices {
       "diagnosed": true,
       "duid": disease.duid,
       "prescribedBy": disease.prescribedBy,
-      "prescription": disease.prescription
+      "prescription": disease.prescription,
+      "diagnoseDate": disease.diagnoseDate,
     });
   }
 

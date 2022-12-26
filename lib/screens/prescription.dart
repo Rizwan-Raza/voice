@@ -43,7 +43,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                     ),
                     Text(
                       widget.disease.user.name ?? "Patient Name",
-                      style: TextStyle(fontSize: 20.0),
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -56,8 +56,8 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                           fontWeight: FontWeight.bold, fontSize: 18.0),
                     ),
                     Text(
-                      widget.disease.user.age.toString() ?? "NA",
-                      style: TextStyle(fontSize: 20.0),
+                      widget.disease.user.age ?? "NA",
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -70,8 +70,8 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                           fontWeight: FontWeight.bold, fontSize: 18.0),
                     ),
                     Text(
-                      widget.disease.diagnoseDate.split(" ").first ?? "NA",
-                      style: TextStyle(fontSize: 20.0),
+                      widget.disease.diagnoseDate.split("T").first ?? "NA",
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -89,7 +89,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                             fontSize: 18.0, fontWeight: FontWeight.bold)),
                     Text(
                       ": ${widget.disease.disease}",
-                      style: TextStyle(fontSize: 20.0),
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -101,7 +101,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                             fontSize: 18.0, fontWeight: FontWeight.bold)),
                     Text(
                       ": ${widget.disease.kabSeH}",
-                      style: TextStyle(fontSize: 20.0),
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -129,7 +129,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                     Flexible(
                       // height: 200,
                       child: ListView(
-                        // physics: ,
+                        // physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         children: widget.disease.prescription
                             .split(" *-*-*")

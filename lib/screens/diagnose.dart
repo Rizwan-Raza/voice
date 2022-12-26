@@ -219,6 +219,9 @@ class _DiagnoseScreenState extends State<DiagnoseScreen> {
                                             widget.disease.prescription =
                                                 lastWords.replaceAll(
                                                     "\n\n", " *-*-*");
+                                            widget.disease.diagnoseDate =
+                                                DateTime.now()
+                                                    .toIso8601String();
                                             await Provider.of<PatientServices>(
                                                     context,
                                                     listen: false)
