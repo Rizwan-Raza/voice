@@ -56,19 +56,20 @@ class _DoctorBoardState extends State<DoctorBoard> {
                               builder: (context) =>
                                   DiagnoseScreen(disease: disease)),
                         ).then((Future<Map<String, dynamic>> fut) {
-                          fut.then((Map<String, dynamic> res) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(res['message'][0]),
-                                // content: Text(res['status']),
-                              ),
-                            );
-                            print(res.toString());
-                            Future.delayed(Duration(seconds: 3), () {
-                              ScaffoldMessenger.of(context)
-                                  .hideCurrentSnackBar();
+                          if (fut != null)
+                            fut.then((Map<String, dynamic> res) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(res['message'][0]),
+                                  // content: Text(res['status']),
+                                ),
+                              );
+                              print(res.toString());
+                              Future.delayed(Duration(seconds: 3), () {
+                                ScaffoldMessenger.of(context)
+                                    .hideCurrentSnackBar();
+                              });
                             });
-                          });
                         });
                       },
                       leading: Icon(Icons.opacity),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:provider/provider.dart';
@@ -171,6 +173,7 @@ class LoginScreen extends StatelessWidget {
                     _formKey.currentState.save();
                     final auth =
                         Provider.of<AuthServices>(context, listen: false);
+                    log("Here we go");
                     try {
                       await auth.login(email, password);
                     } catch (e) {

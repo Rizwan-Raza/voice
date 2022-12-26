@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer' as developer;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -285,6 +286,7 @@ class _DiagnoseScreenState extends State<DiagnoseScreen> {
   }
 
   void startListening() {
+    developer.log("Here");
     lastWords = '';
     lastError = '';
     speech.listen(

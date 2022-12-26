@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:voice_prescription/modals/user.dart';
@@ -19,6 +21,8 @@ class AuthServices {
 
     var obj =
         await _fireStore.collection("users").doc(loginCreds.user.uid).get();
+    log("Aah shitt");
+    log(obj.data().toString());
     this._user = UserModal.fromMap(obj.data());
   }
 
